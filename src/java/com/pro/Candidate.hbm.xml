@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Dec, 2014 10:59:37 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.pro.Candidate" table="candidate" catalog="test" optimistic-lock="version">
+        <id name="voterId" type="int">
+            <column name="VoterId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="constituency" class="com.pro.Constituency" fetch="select">
+            <column name="CId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="party" class="com.pro.Party" fetch="select">
+            <column name="RegId" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="Name" length="45" not-null="true" />
+        </property>
+        <property name="agenda" type="string">
+            <column name="Agenda" length="256" not-null="true" />
+        </property>
+        <property name="asset" type="string">
+            <column name="Asset" length="256" not-null="true" />
+        </property>
+        <property name="qualification" type="string">
+            <column name="Qualification" length="256" not-null="true" />
+        </property>
+        <property name="voteN" type="int">
+            <column name="VoteN" not-null="true" />
+        </property>
+        <property name="active" type="string">
+            <column name="Active" length="1" not-null="true" />
+        </property>
+        <property name="new_" type="string">
+            <column name="New" length="1" not-null="true" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" length="45" not-null="true" />
+        </property>
+        <property name="ftime" type="int">
+            <column name="ftime" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
